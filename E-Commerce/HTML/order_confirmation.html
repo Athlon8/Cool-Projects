@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <!-- Below are some external links that are required for further processes -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="../CSS/style.css">
+  <title>ARN - Order Confirmation</title>
+  <link rel="icon" type="image" href="../Images/logo.png">
+</head>
+<body>
+    <!-- Below is the navigation bar of the website -->
+    <nav class="navbar navbar-expand-lg navbar-light justify-content-xl-around">
+      <a class="navbar-brand" href="#"><img class="logo" style="height: 50px; width: 50px;" src="../Images/logoARN.png" alt=""></a>
+       <!-- Below is the navigation toggle button that only appears when there is not enough space for the complete navigation bar to be displayed
+  so it converts it into a toggle so when clicked on it we can see the navugation bar in vertical order -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+       <!-- Collapse bar for the navigation -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+          <div class="navbar-nav nav-fill w-100">
+          <span class="nav-item d-flex px-5">
+                <!-- following are the links of the pages -->
+            <a class="nav-link text-light" href="index.html">Home</a>
+            <a class="nav-link text-light" href="formal-listing.html">Shop</a>
+          </span>
+          <span>
+          <form class="form-inline my-2 my-lg-0">
+              <!-- The below form is for the search -->
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+          </form>
+          </span>
+           <!-- The last span is for the cart, login, and registration -->
+          <span class="nav-item d-flex justify-content-end">
+              <!-- The first div is for the cart which is being used as a dropdown -->
+            <div class="dropdown">
+              <button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown">
+                <i class="fa fa-shopping-cart"></i>  <!-- This is the icon of the shopping cart. Note internet is required to load it -->
+              </button>
+              <!-- the div below is for the content of the dropdown -->
+              <div class="dropdown-menu dropdown-menu-right">
+                <table class="table table-hover table-bordered rounded-lg">
+                  <thead class="thead-light">
+                    <tr>
+                      <th>Product Image</th>
+                      <th>Product Name</th>
+                      <th>Price</th>
+                      <th>Quantity</th>
+                      <th>Total</th>
+                      <th>Remove</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <img src="../Images/product1.jpeg" alt="Good Shoes" width="50">
+                      </td>
+                      <td>Good Shoes</td>
+                      <td>10 Dhs.</td>
+                      <td>
+                        <input type="number" class="form-control" value="1">
+                      </td>
+                      <td class="priceTotal">10 Dhs.</td>
+                      <td>
+                        <button class="btn btn-danger remove-button">X</button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="../Images/product2.jpg" alt="Better Shoes" width="50">
+                      </td>
+                      <td>Better Shoes</td>
+                      <td>20 Dhs.</td>
+                      <td>
+                        <input type="number" class="form-control" value="1">
+                      </td>
+                      <td class="priceTotal">20 Dhs.</td>
+                      <td>
+                        <button class="btn btn-danger remove-button">X</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <h2 class="text-dark" id="total">Total: 30 Dhs.</h2>
+                <div class="dropdown-divider"></div>
+                <div class="d-flex justify-content-end">
+                  <a class="btn btn-primary btn-block text-white" href="order_confirmation.html">Checkout</a>
+                </div>
+              </div>
+              <!-- Below is the end of the dropdown  -->
+            </div>
+            <a class="nav-linka text-light" href="login.html">Login/</a>
+            <a class="nav-linkb text-light" href="signuppage.html">Register</a>
+          </span>
+          </div>
+      </div>
+    </nav>
+  <div class="container mt-5">
+    <div class="orderPageContainer">
+      <div>
+      <img class="logo" style="height: 200px; width: 200px;" src="../Images/logoARN.png" alt="" class="img-fluid pull-left">
+      </div>
+      <div>
+      <br>
+      <br>
+      <h1 class="text-light">Order Confirmed</h1>
+      <div class="successMessage alert alert-success image" role="alert">
+        Your order has been placed successfully!
+      </div>
+      </div>
+    </div>
+    <h2 class="text-light">Order Details</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="text-light">Product</th>
+          <th class="text-light">Quantity</th>
+          <th class="text-light">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="text-light">Better Shoes</td>
+          <td class="text-light">2</td>
+          <td class="text-light">20 Dhs.</td>
+        </tr>
+        <tr>
+          <td class="text-light">Good Shoes</td>
+          <td class="text-light">1</td>
+          <td class="text-light">10 Dhs.</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3 class="text-light">Total: 50 Dhs.</h3>
+    <p class="text-light">Thank you for your purchase!</p>
+  </div>
+  <script src="../Javascript/cart.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+  integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+ 
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+ 
+  <script src="https://use.fontawesome.com/ee1c3da296.js"></script>
+  </body>
+  </html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Below are some external links that are required for further processes -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="../CSS/style.css">
+  <link rel="stylesheet" href="../CSS/stylesheet.css">
+  <title>ARN - CMS</title>
+  <link rel="icon" type="image" href="../Images/logo.png">
+</head>
+<body>
+  <!-- Below is the code for navigation bar which is styled using bootstrap -->
+  <nav class="navbar navbar-expand-lg navbar-light justify-content-xl-around">
+    <a class="navbar-brand" href="#"><img class="logo" style="height: 50px; width: 50px;" src="../Images/logoARN.png" alt=""></a>
+    <!-- Below is the navigation toggle button that only appears when there is not enough space for the complete navigation bar to be displayed
+    so it converts it into a toggle so when clicked on it we can see the navugation bar in vertical order -->
+    <button class="navbar-toggler bg-light" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Collapse bar for the navigation -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="navbar-nav nav-fill w-100">
+        <span class="nav-item d-flex px-5">
+          <!-- following are the links of the pages -->
+          <a class="nav-link text-light" href="all_orders.html">Orders</a>
+          <a class="nav-link text-light" href="all_products.html">Products</a>
+          <a class="nav-link text-light" href="new_product.html">New Product</a>
+        </span>
+        <span>
+          <!-- The below form is for the search -->
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+        </form>
+        </span>
+        <!-- The last span is for the registration and login options -->
+        <span class="nav-item d-flex justify-content-end">
+          <a class="nav-linka text-light" href="login.html">Login/</a>
+              <a class="nav-linkb text-light" href="signup.html">Register</a>
+        </span>
+        </div>
+    </div>
+  </nav>
+  <!-- Below is the content of the body -->
+  <div class="container2">
+
+    <h1 style="display: block; float: left; color: white; margin-left: 70px; margin-top: 10px;" class="text-dark">REGISTER</h1>
+
+    <form id="signupForm">
+        <br>
+        <br>
+        <br>
+        <label class="signUpLabel text-dark" for="f_name">First Name:</label>
+        <input class="signUpinput text-dark" type="text" id="firstname" name="email" required>
+
+        <label class="signUpLabel text-dark" for="l_name">Last Name:</label>
+        <input class="signUpinput text-dark" type="text" id="lastname" name="lastname" required>
+        <label class="signUpLabel text-dark" for="email">Email:</label>
+        <input class="signUpinput text-dark" type="email" id="email" name="email" required>
+
+
+        <label class="signUpLabel text-dark" for="city">City:</label>
+
+        <select name="city" style="float: inline-end; " class="signUpinput" id="city " size="1 ">
+            <option class="text-dark" value="abudhabi">Abudhabi</option>
+            <option class="text-dark" value="dubai">Dubai</option>
+            <option class="text-dark" value="sharjah">Sharjah</option>
+            <option class="text-dark" value="ajman">Ajman</option>
+            <option class="text-dark" value="ain">Al-Ain</option>
+            <option class="text-dark" value="fujairah">Fujairah</option>
+            <option class="text-dark" value="rak">Ras Al-Khaimah</option>
+
+        </select>
+
+        <label class="signUpLabel text-dark" for="Address">Address:</label>
+        <input class="signUpinput text-dark" type="text" id="Address" name="Address">
+
+        <label class="signUpLabel text-dark" for="Mobile">Mobile:</label>
+        <input class="signUpinput text-dark" type="tel" id="Mobile" name="Mobile">
+
+        <label class="signUpLabel text-dark" for="password">Password:</label>
+        <input class="signUpinput text-dark" type="password" id="password" name="password" required>
+
+        <label class="signUpLabel text-dark" for="confirmPassword">Confirm Password:</label>
+        <input class="signUpinput text-dark" type="password" id="confirmPassword" name="confirmPassword" required>
+
+        <button type="submit" class="SignUpbutton">Register</button> <br>
+        <a href="login.html" style="margin-left: 560px;">Already have an account? Sign In</a>
+        <br>
+    </form>
+</div>
+<script src="../JS/signup.js"></script>
+<script src="../Javascript/admin.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+  integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+ 
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+ 
+  <script src="https://use.fontawesome.com/ee1c3da296.js"></script>
+</body>
+</html>      

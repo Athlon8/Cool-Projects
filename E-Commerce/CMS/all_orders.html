@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Below are some external links that are required for further processes -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="../CSS/stylesheet.css">
+  <title>ARN - CMS</title>
+  <link rel="icon" type="image" href="../Images/logo.png">
+</head>
+<body>
+  <!-- Below is the code for navigation bar which is styled using bootstrap -->
+  <nav class="navbar navbar-expand-lg navbar-light justify-content-xl-around">
+    <a class="navbar-brand" href="#"><img class="logo" style="height: 50px; width: 50px;" src="../Images/logoARN.png" alt=""></a>
+    <!-- Below is the navigation toggle button that only appears when there is not enough space for the complete navigation bar to be displayed
+    so it converts it into a toggle so when clicked on it we can see the navugation bar in vertical order -->
+    <button class="navbar-toggler bg-light" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Collapse bar for the navigation -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="navbar-nav nav-fill w-100">
+        <span class="nav-item d-flex px-5">
+          <!-- following are the links of the pages -->
+          <a class="nav-link text-light" href="all_orders.html">Orders</a>
+          <a class="nav-link text-light" href="all_products.html">Products</a>
+          <a class="nav-link text-light" href="new_product.html">New Product</a>
+        </span>
+        <span>
+          <!-- The below form is for the search -->
+        <div class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search Orders" aria-label="Search" id="ordersSearch" onkeydown="searchHandle()">
+          <button class="btn btn-outline-primary my-2 my-sm-0" type="submit"onclick="searchHandleClick()">Search</button>
+        </div>
+        </span>
+        <!-- The last span is for the registration and login options -->
+        <span class="nav-item d-flex justify-content-end">
+          <a class="nav-linka text-light" href="login.html">Login/</a>
+              <a class="nav-linkb text-light" href="signup.html">Register</a>
+        </span>
+        </div>
+    </div>
+  </nav>
+  <!-- Below is the content of the body -->
+  <div class="container" id="orders">
+    <!-- Below is a table that would display all the orders -->
+  </div>
+  <!-- Below is the script to show the modal of the order description and the modal to confirm the cancellation of the order -->
+  <script>
+   window.onload = loadProducts;
+           
+           //Downloads JSON description of products from server
+           function loadProducts(){
+               //Create request object 
+               let request = new XMLHttpRequest();
+
+               //Create event handler that specifies what should happen when server responds
+               request.onload = () => {
+                   //Check HTTP status code
+                   if(request.status === 200){
+                       //Add data from server to page
+                       displayProducts(request.responseText);
+                   }
+                   else
+                       alert("Error communicating with server: " + request.status);
+               };
+
+               //Set up request and send it
+               request.open("GET", "../PHP/all_orders.php");
+               request.send();
+           }
+           //Loads products into page
+           function displayProducts(jsonOrders){
+               //Convert JSON to array of product objects
+               let orderArray = JSON.parse(jsonOrders);
+               
+               //Create HTML table containing product data
+               let htmlStr = '<table class="table table-striped">';
+                 htmlStr += '<thead>';
+                 htmlStr +=    '<tr>';
+                 htmlStr +=        '<th>Order ID</th>';
+                 htmlStr +=        '<th>Customer Name</th>';
+                 htmlStr +=        '<th>Phone Number</th>';
+                 htmlStr +=        '<th>Price</th>';
+                 htmlStr +=        '<th>Actions</th>';
+                 htmlStr +=      '</tr>';
+                 htmlStr +=    '</thead>';
+                 htmlStr +=   '<tbody>'
+               for(let i=0; i<orderArray.length; ++i){
+                   htmlStr += "<tr>";
+                   htmlStr +=   '<td>'+ orderArray[i]._id +'</td>';
+                   htmlStr += "<td>" + orderArray[i].customerName + '<div class="product-description">' + orderArray[i].customerAddress+'</div> </td>';
+                   htmlStr += "<td><p>" + orderArray[i].customerPhone + "</p></td>";
+                   htmlStr += '<td>'+orderArray[i].TotalPrice+' AED</td>';
+                   htmlStr += '<td> <div class="btn-group-vertical"> <a href="#" class="btn btn-primary btn-xs edit-product" data-product-id="' + orderArray[i]._id + '">Show</a><a href="#" class="btn btn-danger btn-xs remove-product" data-product-id="'+orderArray[i]._id+'">Cancel</a></div></td>'
+                   htmlStr += "</tr>";
+               }
+               htmlStr += "</tbody>";
+               //Finish off table and add to document
+               htmlStr += "</table>";
+               document.getElementById("orders").innerHTML = htmlStr;
+                var productId;
+                $(document).ready(function(){
+                    $('.remove-product').click(function(e) {
+                        productId = $(this).data('product-id');
+                        var productName = $(this).closest('tr').find('td:eq(1)').text();
+                        var confirmModal = $('#confirmModal');
+                        confirmModal.find('.modal-body p').text('Are you sure you want to cancel the order ' + productId + '?');
+                        confirmModal.modal();
+                });
+    
+                $('#confirmModal #confirm').click(function(){
+                  let request = new XMLHttpRequest();
+
+                    //Create event handler that specifies what should happen when server responds
+                    request.onload = () => {
+                        //Check HTTP status code
+                        if(request.status === 200){
+                            //Add data from server to page
+                            // displayProducts(request.responseText);
+                            console.log("Order Removed");
+                        }
+                        else
+                            alert("Error communicating with server: " + request.status);
+                  };
+
+                  //Set up request and send it
+                  request.open("POST", "../PHP/delete_order.php");
+                  request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                  request.send("id=" + productId);
+                  console.log(productId)
+                  $('.remove-product[data-product-id="'+productId+'"]').closest('tr').remove();
+                  $('#confirmModal').modal('hide');
+                });
+            });
+            $('.edit-product').on('click', function(e) {
+              var productId = $(this).data('product-id');
+              $('#myModal').modal('show');
+              console.log(productId);
+              let request = new XMLHttpRequest();
+              request.onload = () => {
+                      //Check HTTP status code
+                      if(request.status === 200){
+                          //Add data from server to page
+                          let order = request.responseText;
+                          jsonOrder = JSON.parse(order);
+                          console.log(jsonOrder.customerName);
+                          document.getElementById('orderID').textContent = "ID: "+ jsonOrder._id;
+                          document.getElementById('customerName').textContent ="Customer Name: " + jsonOrder.customerName;
+                          document.getElementById('customerNumber').textContent = "Customer Number: "+jsonOrder.customerPhone;
+                          document.getElementById('customerAddress').textContent = "Customer Address: " + jsonOrder.customerAddress;
+                          document.getElementById('orderedProducts').textContent ="Ordered Products: "+ jsonOrder.orderedProducts;
+                          document.getElementById('orderPrice').textContent = "Total Price: " + jsonOrder.TotalPrice;
+                          
+                      }
+                      else
+                          alert("Error communicating with server: " + request.status);
+                  };
+
+                  //Set up request and send it
+                  request.open("POST", "../PHP/orderInfo.php");
+                  request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                  request.send("id=" + productId);
+                $('#close-modal').click(function(){
+                  $('#myModal').modal('hide');
+                        });
+            });
+      }
+        function searchHandle(){
+                    if(event.key==='Enter'){
+                      let searchInput = document.getElementById("ordersSearch").value;
+                      let request = new XMLHttpRequest();
+                      request.open("GET", "../PHP/search_orders.php?search=" + searchInput, true);
+                      request.onload = () => {
+                          if(request.status === 200){
+                            displayProducts(request.responseText);
+                              console.log("Result Visible");
+                          }
+                          else
+                              alert("Error communicating with server: " + request.status);
+                          };
+                      request.send();
+                    }
+                  }
+                function searchHandleClick(){
+                      let searchInput = document.getElementById("ordersSearch").value;
+                      let request = new XMLHttpRequest();
+                      request.open("GET", "../PHP/search_orders.php?search=" + searchInput, true);
+                      request.onload = () => {
+                          if(request.status === 200){
+                            displayProducts(request.responseText);
+                            console.log("Result Visible");
+                          }
+                          else
+                              alert("Error communicating with server: " + request.status);
+                      };
+                      request.send();
+                }
+  </script>
+  <!-- The div below is for the modal of order cancellation -->
+  <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="confirmModalLabel">Confirm</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to cancel this order?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Exit</button>
+          <button type="button" class="btn btn-danger" id="confirm">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- The div below is for the modal that displays the order information -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="myModalLabel">Order Info</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body">
+          <p id="orderID"></p>
+          <p id="customerName"></p>
+          <p id="customerNumber"></p>
+          <p id="customerAddress"></p>
+          <p id="orderedProducts"></p>
+          <p id="orderPrice"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id="close-modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Below are some of the script files required for the operation -->
+  <!-- <script src="../Javascript/cart.js"></script> -->
+  <script src="../Javascript/admin.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://use.fontawesome.com/ee1c3da296.js"></script>
+
+</body>
+</html>      

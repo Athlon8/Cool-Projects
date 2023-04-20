@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <!-- Below are some external links that are required for further processes -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="../CSS/style.css" rel="stylesheet">
+    <title>ARN - Formal Listing</title>
+    <link rel="icon" type="image" href="../Images/logo.png">
+</head>
+
+<body>
+    <!-- Below is the navigation bar of the website -->
+    <nav class="navbar navbar-expand-lg navbar-light justify-content-xl-around">
+        <a class="navbar-brand" href="#"><img class="logo" style="height: 50px; width: 50px;" src="../Images/logoARN.png" alt=""></a>
+         <!-- Below is the navigation toggle button that only appears when there is not enough space for the complete navigation bar to be displayed
+    so it converts it into a toggle so when clicked on it we can see the navugation bar in vertical order -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+         <!-- Collapse bar for the navigation -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="navbar-nav nav-fill w-100">
+            <span class="nav-item d-flex px-5">
+                  <!-- following are the links of the pages -->
+              <a class="nav-link text-light" href="index.html">Home</a>
+              <a class="nav-link text-light" href="formal-listing.html">Shop</a>
+            </span>
+            <span>
+            <form class="form-inline my-2 my-lg-0">
+                <!-- The below form is for the search -->
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            </span>
+             <!-- The last span is for the cart, login, and registration -->
+            <span class="nav-item d-flex justify-content-end">
+                <!-- The first div is for the cart which is being used as a dropdown -->
+              <div class="dropdown">
+                <button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown">
+                  <i class="fa fa-shopping-cart"></i>  <!-- This is the icon of the shopping cart. Note internet is required to load it -->
+                </button>
+                <!-- the div below is for the content of the dropdown -->
+                <div class="dropdown-menu dropdown-menu-right">
+                  <table class="table table-hover table-bordered rounded-lg">
+                    <thead class="thead-light">
+                      <tr>
+                        <th>Product Image</th>
+                        <th>Product Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                        <th>Remove</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <img src="../Images/product1.jpeg" alt="Good Shoes" width="50">
+                        </td>
+                        <td>Good Shoes</td>
+                        <td>10 Dhs.</td>
+                        <td>
+                          <input type="number" class="form-control" value="1">
+                        </td>
+                        <td class="priceTotal">10 Dhs.</td>
+                        <td>
+                          <button class="btn btn-danger remove-button">X</button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <img src="../Images/product2.jpg" alt="Better Shoes" width="50">
+                        </td>
+                        <td>Better Shoes</td>
+                        <td>20 Dhs.</td>
+                        <td>
+                          <input type="number" class="form-control" value="1">
+                        </td>
+                        <td class="priceTotal">20 Dhs.</td>
+                        <td>
+                          <button class="btn btn-danger remove-button">X</button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <h2 class="text-dark" id="total">Total: 30 Dhs.</h2>
+                  <div class="dropdown-divider"></div>
+                  <div class="d-flex justify-content-end">
+                    <a class="btn btn-primary btn-block text-white" href="order_confirmation.html">Checkout</a>
+                  </div>
+                </div>
+                <!-- Below is the end of the dropdown  -->
+              </div>
+              <a class="nav-linka text-light" href="login.html">Login/</a>
+              <a class="nav-linkb text-light" href="signuppage.html">Register</a>
+            </span>
+            </div>
+        </div>
+      </nav>
+    <div class="content">
+        <div class="filter">
+            <h1>FORMAL</h1>
+            <h2>20 Styles</h2>
+            <hr>
+            <h3>BRAND</h3>
+            <br>
+            <select name="size " style="float: inline-end; margin-left: 50px; " id="brandName" size="1">
+                <option value="nike">Show All</option>
+                <option value="nike">Nike</option>
+                <option value="adidas">Adidas</option>
+                <option value="puma">Puma</option>
+                <option value="puma">Reebok</option>
+                <option value="nb">New Balance</option>
+                <option value="Tommy">Tommy Heilfiger</option>
+            </select>
+            <br>
+            <br>
+            <hr>
+            <h3>PRICE</h3>
+            <div class="wrapper">
+                <div class="price-input">
+                    <div class="field">
+                        <h2>MIN</h2>
+                        <input style="margin-left: 20px;" type="number" class="input-min" value="250">
+                    </div>
+                    <div class="separator">-</div>
+                    <div class="field">
+                        <h2>MAX</h2>
+                        <input type="number" style="margin-left: 20px;" class="input-max" value="750">
+                    </div>
+                </div>
+
+                <hr>
+                <h3>SEX</h3>
+                <form>
+                    <label for="m" style="color: white; margin-left: 50px; margin-right: -50px; padding-top: 20px;padding-bottom: 20px;font-size: 14px;">MALE:   </label>
+                    <input type="radio" id="Male" name="sex" value="Male">
+                    <br>
+                    <label for="f" style="color: white; padding-left: 50px; padding-right: 25px; padding-bottom: 20px;font-size: 14px;">FEMALE: </label>
+                    <input type="radio" id="Female" name="sex" value="Female">
+                    <br>
+                    <label for="u " style="color: white; padding-left: 50px; padding-right: 27px; padding-bottom: 20px;font-size: 14px;">UNISEX: </label>
+                    <input type="radio" id="Unisex " name="sex" value="Unisex">
+                </form>
+                <hr>
+                <h3>MATERIAL</h3>
+                <ul id="material_list">
+                    <li style="list-style: none">
+                        <a href="#" style=" width: 80%; display: flex; border: none; margin-top: 20px;">
+                            <span style="margin-left: 10px;">Leather</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li style="list-style: none">
+                        <a href="#" style=" width: 80%; display: flex; border: none; margin-top: 2px;">
+                            <span style="margin-left: 10px;">Rubber</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li style="list-style: none">
+                        <a href="#" style=" width: 80%; display: flex; border: none; margin-top: 2px;">
+                            <span style="margin-left: 10px;">Textiles</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li style="list-style: none">
+                        <a href="#" style=" width: 80%; display: flex; border: none; margin-top: 2px;">
+                            <span style="margin-left: 10px;">Denim</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+                <hr>
+                <h3>COLOR</h3>
+                <ul id="color_list">
+                    <li style="list-style: none">
+                        <a href="#" style=" width: 80%; display: flex; border: none;">
+                            <div class="beige" style="width: 15px; height: 15px; margin-top: 2px; background-color: beige; display: flex;"></div>
+                            <span style="margin-left: 20px;">Beige</span>
+
+                            </span>
+                        </a>
+                    </li>
+                    <li style="list-style: none">
+                        <a href="#" style=" width: 80%; display: flex; border: none; margin-top: 0px;">
+                            <div class="black" style="width: 15px; height: 15px; margin-top: 2px; background-color: rgb(0, 0, 0); display: flex;"></div>
+                            <span style="margin-left: 20px;">Black</span>
+
+                            </span>
+                        </a>
+                    </li>
+                    <li style="list-style: none">
+                        <a href="#" style=" width: 80%; display: flex; border: none; margin-top: 0px;">
+                            <div class="blue" style="width: 15px; height: 15px; margin-top: 2px; background-color: rgb(0, 13, 134); display: flex;"></div>
+                            <span style="margin-left: 20px;">Blue</span>
+
+                            </span>
+                        </a>
+                    </li>
+                    <li style="list-style: none">
+                        <a href="#" style=" width: 80%; display: flex; border: none; margin-top: 0px;">
+                            <div class="brown" style="width: 15px; height: 15px; margin-top: 2px; background-color: rgb(97, 52, 22); display: flex;"></div>
+                            <span style="margin-left: 20px;">Brown</span>
+
+                            </span>
+                        </a>
+                    </li>
+                    <li style="list-style: none">
+                        <a href="#" style=" width: 80%; display: flex; border: none; margin-top: 0px;">
+                            <div class="red" style="width: 15px; height: 15px; margin-top: 2px; background-color: rgb(116, 14, 14); display: flex;"></div>
+                            <span style="margin-left: 20px;">Red</span>
+
+                            </span>
+                        </a>
+                    </li>
+                    <li style="list-style: none">
+                        <a href="#" style=" width: 80%; display: flex; border: none; margin-top: 0px;">
+                            <div class="white" style="width: 15px; height: 15px; margin-top: 2px; background-color: rgb(255, 255, 255); display: flex;"></div>
+                            <span style="margin-left: 20px;">White</span>
+
+                            </span>
+                        </a>
+                    </li>
+
+                    <li style="list-style: none">
+                        <a href="#" style=" width: 80%; display: flex; border: none; margin-top: 0px;">
+                            <div class="green" style="width: 15px; height: 15px; margin-top: 2px; background-color: rgb(6, 88, 13); display: flex;"></div>
+                            <span style="margin-left: 20px;">Green</span>
+
+                            </span>
+                        </a>
+                    </li>
+                    <li style="list-style: none">
+                        <a href="#" style=" width: 80%; display: flex; border: none; margin-top: 0px;">
+                            <div class="yellow" style="width: 15px; height: 15px; background-color: rgb(255, 230, 0); margin-top: 2px; display: flex;"></div>
+                            <span style="margin-left: 20px;">Yellow</span>
+
+                            </span>
+                        </a>
+                    </li>
+                    <li style="list-style: none">
+                        <a href="#" style=" width: 80%; display: flex; border: none; margin-top: 0px;">
+                            <div class="multicolor" style="width: 15px; height: 15px; margin-top: 2px; display: flex;"></div>
+                            <span style="margin-left: 20px;">Other Colors</span>
+
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <hr>
+            <button type="button" onclick="location.href='#';" class="filterbtn">Filter</button>
+
+        </div>
+        <div class="productsdisplay">
+            <div class="listing-section">
+                <a href="product-page.html" class="product" style="border: 0px;">
+
+                    <img class="productimg" src="../images/product11.webp" alt="">
+
+                    <div class="text-box" style="border: 0;">
+                        <h4 class="item">Nike</h4>
+                        <h2>BLAZER MID '77 JUMBO ESS</h2>
+                        <br>
+                        <h3 class="price">374 AED</h3>
+                    </div>
+
+                </a>
+
+                <a href="product-page.html" class="product" style="border: 0px;">
+
+                    <img class="productimg" src="../images/shoes2.webp" alt="">
+
+                    <div class="text-box" style="border: 0;">
+                        <h4 class="item">Adidas</h4>
+                        <h2>Duramo 10</h2>
+                        <br>
+                        <br>
+                        <h3 class="price">209 AED</h3>
+                    </div>
+
+                </a>
+
+                <a href="product-page.html" class="product" style="border: 0px;">
+
+                    <img class="productimg" src="../images/shoes3.webp" alt="">
+
+                    <div class="text-box" style="border: 0;">
+                        <h4 class="item">Adidas</h4>
+                        <h2>Ozweego
+                        </h2>
+                        <br>
+
+                        <br>
+                        <h3 class="price">329 AED</h3>
+                    </div>
+
+                </a>
+
+                <a href="product-page.html" class="product" style="border: 0px;">
+
+                    <img class=" productimg " src="../images/shoes4.webp " alt=" ">
+
+                    <div class="text-box " style="border: 0; ">
+                        <h4 class="item ">Nike</h4>
+                        <h2>Precision Vi</h2>
+                        <br>
+
+                        <h3 class="price">320 AED</h3>
+                    </div>
+
+                </a>
+                <a href="product-page.html " class="product " style="border: 0px;">
+
+                    <img class="productimg " src="../images/shoes5.webp " alt=" ">
+
+                    <div class="text-box " style="border: 0; ">
+                        <h4 class="item ">Nike</h4>
+                        <h2>Court Vision Lo Be</h2>
+                        <br>
+                        <h3 class="price">300 AED</h3>
+
+                    </div>
+
+                </a>
+
+                <a href="product-page.html" class="product " style="border: 0px">
+
+                    <img class="productimg" src="../images/shoes6.webp " alt=" ">
+
+                    <div class="text-box" style="border: 0; ">
+                        <h4 class="item">Nike</h4>
+                        <h2>Af1 Shadow</h2>
+                        <br>
+                        <h3 class="price">374 AED</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js "></script>
+    <script src="jquery.ripples-min.js "></script>
+    <script src="../Javascript/cart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+   
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/ee1c3da296.js"></script>
+    
+
+</body>
+
+</html>

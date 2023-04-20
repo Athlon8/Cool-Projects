@@ -1,0 +1,492 @@
+.navbar{
+    background-color: rgb(0, 0, 0);
+   }
+   .btn-light:hover{
+    background-color: grey;
+   }
+   body{
+    background-color: rgb(19,19,19);
+   }
+   .orderPageContainer{
+    display: flex;
+   }
+  .successMessage{
+    width: 100%;
+  }
+  .myContainer {
+    position: inherit;
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+.leftpanel {
+  height: 100vh;
+  width: 50%;
+  display: grid;
+  background-color: rgb(217, 217, 217);
+  background-size: 100% 100%;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.rightpanel {
+  height: 100vh;
+  width: 50%;
+  display: grid;
+  background-color: rgb(28, 61, 109);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.shopbtn {
+  width: 150px;
+  height: 40px;
+  padding: 5px 30px;
+  left: 25%;
+  top: -30px;
+  color: white;
+  cursor: pointer;
+  background: rgba(128, 127, 127, 0.644);
+  border: 0;
+  outline: 0;
+  position: relative;
+  margin-left: 50px;
+  margin-bottom: 10px;
+  border-radius: 30px 30px 30px 30px;
+}
+.content hr {
+  color: white;
+  width: 100%;
+}
+
+.content h1 {
+  text-align: left;
+  margin-left: 40px;
+  border-bottom: 1px;
+  color: #fff;
+  font-family: poppins;
+  font-size: 28px;
+  display: inline;
+}
+
+.content h2 {
+  margin-top: 20px;
+  text-align: left;
+  margin-left: 40px;
+  border-bottom: 1px;
+  color: rgb(197, 197, 197);
+  font-family: poppins;
+  font-size: 12px;
+  display: inline;
+}
+
+.content h3 {
+  text-align: left;
+  margin-left: 40px;
+  border-bottom: 1px;
+  color: #fff;
+  font-family: poppins;
+  font-size: 18px;
+}
+
+.content p {
+  font-family: ubuntu;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #ddd;
+}
+
+.content h1 span {
+  color: #3594cc;
+}
+
+.content a {
+  border: 1px solid #fff;
+  padding: 10px 25px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+  margin-top: 20px;
+  display: inline-block;
+  color: #fff;
+}
+
+.content a:hover {
+  background: #fff;
+  color: #333;
+}
+.price-input {
+  width: 100%;
+  display: flex;
+  margin: 30px 0 35px;
+}
+
+.price-input .field {
+  display: block;
+  width: 100%;
+  height: 45px;
+  align-items: center;
+}
+
+.field input {
+  width: 60px;
+  height: 30px;
+  outline: none;
+  font-size: 12px;
+  margin-left: 5px;
+  border-radius: 5px;
+  text-align: center;
+  border: 1px solid #999;
+  /* -moz-appearance: textfield; */
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.price-input .separator {
+  width: 130px;
+  display: flex;
+  font-size: 19px;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider {
+  height: 5px;
+  margin-left: 40px;
+  width: 70%;
+  position: relative;
+  background: #ddd;
+  border-radius: 5px;
+}
+
+.slider .progress {
+  height: 100%;
+  left: 25%;
+  right: 25%;
+  position: absolute;
+  border-radius: 5px;
+  background: #17A2B8;
+}
+
+.range-input {
+  position: relative;
+}
+
+.range-input input {
+  position: absolute;
+  margin-left: 40px;
+  width: 70%;
+  height: 5px;
+  top: -5px;
+  background: none;
+  pointer-events: none;
+  /* -webkit-appearance: none;
+  -moz-appearance: none; */
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  height: 17px;
+  width: 17px;
+  border-radius: 50%;
+  background: #17A2B8;
+  pointer-events: auto;
+  -webkit-appearance: none;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+}
+
+input[type="range"]::-moz-range-thumb {
+  height: 17px;
+  width: 17px;
+  border: none;
+  border-radius: 50%;
+  background: #17A2B8;
+  pointer-events: auto;
+  -moz-appearance: none;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+}
+
+.multicolor {
+  background-image: url("multicolor.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  visibility: visible;
+}
+#content-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.column {
+  width: 600px;
+  padding: 10px;
+}
+
+#featured {
+  max-width: 500px;
+  max-height: 600px;
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid black;
+}
+
+.thumbnail {
+  object-fit: cover;
+  max-width: 180px;
+  max-height: 100px;
+  cursor: pointer;
+  opacity: 0.5;
+  margin: 5px;
+  border: 2px solid black;
+}
+
+.thumbnail:hover {
+  opacity: 1;
+}
+
+.active {
+  opacity: 1;
+}
+
+.column h1,
+h2,
+h3,
+h4,
+p,
+hr,
+li,
+label {
+  color: white;
+  text-transform: uppercase;
+}
+
+.column h3 {
+  text-align: right;
+}
+
+#brandlogo {
+  background-image: url("brand-logos/nike.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 50px;
+  width: 50px;
+}
+
+.listing-section,
+.cart-section {
+  width: 100%;
+  float: left;
+  padding: 1%;
+  border-bottom: 0.01em solid #dddbdb;
+}
+
+.product {
+  float: left;
+  width: 30%;
+  margin: 12px;
+  border: 0px;
+  border-radius: 10px 10px 10px 10px;
+}
+
+.text-box {
+  width: 100%;
+  float: left;
+  padding: 1em;
+}
+
+.productsdisplay h2,
+h3,
+h3 {
+  text-align: center;
+  font-family: poppins, sans-serif;
+  display: block;
+  font-size: 17px;
+  text-transform: uppercase;
+  margin: 0.2em auto;
+}
+
+.item,
+.price {
+  clear: left;
+  width: 100%;
+  text-align: center;
+}
+
+.price {
+  color: Grey;
+}
+
+input:focus {
+  outline-color: #fdf;
+}
+
+label {
+  width: 60%;
+}
+
+.text-box input {
+  width: 15%;
+  clear: none;
+}
+
+.text-box button {
+  margin-top: 1em;
+}
+
+.table-heading,
+.table-content {
+  width: 75%;
+  margin: 1% 12.25%;
+  float: left;
+  background-color: #dfd;
+}
+
+.table-heading h2 {
+  padding: 1%;
+  margin: 0;
+  text-align: center;
+}
+
+.productimg {
+  height: 100%;
+  width: 258px;
+  margin-left: -22px;
+}
+
+.price h3 {
+  color: red;
+}
+
+.filterbtn {
+  width: 150px;
+  height: 40px;
+  padding: 5px 30px;
+  left: 0px;
+  top: 0px;
+  color: white;
+  cursor: pointer;
+  background: rgba(128, 127, 127, 0.644);
+  border: 0;
+  outline: 0;
+  position: relative;
+  margin-left: 50px;
+  margin-bottom: 10px;
+  border-radius: 30px 30px 30px 30px;
+}
+/* Sign Up page and Login Page*/
+
+#login-form {
+  width: 300px;
+  margin: 0 auto;
+}
+/* Form labels */
+
+#login-form label {
+  display: block;
+  margin-bottom: 10px;
+}
+/* Form inputs */
+
+#login-form input {
+  width: 100%;
+  padding: 12px 20px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+/* Error message container */
+
+#error-message {
+  color: red;
+  margin-bottom: 20px;
+}
+/* Login button */
+
+#login-form button {
+  width: 100%;
+  background-color: #2626bb;
+  color: white;
+  padding: 14px 20px;
+  margin-bottom: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+body {
+  background-image: ('shoe2.jpg');
+  background-repeat: no-repeat;
+  background-position: 100%;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+h1 {
+  text-align: center;
+}
+
+.signUpLabel {
+  margin-top: 30px;
+  margin-left: 300px;
+  margin-right: -300px;
+}
+
+.signUpinput {
+  width: 400px;
+  background-color: transparent;
+  color: white;
+  border-bottom: white 3px;
+  border: 0px;
+  border-bottom: solid white 1px;
+}
+
+.SignUpbutton {
+  width: 400px;
+  height: 40px;
+  padding: 5px 30px;
+  left: 0px;
+  top: 0px;
+  color: white;
+  cursor: pointer;
+  background: rgba(128, 127, 127, 0.644);
+  border: 0;
+  outline: 0;
+  position: relative;
+  margin-left: 500px;
+  margin-bottom: 10px;
+  margin-top: 50px;
+  border-radius: 30px 30px 30px 30px;
+}
+         
+.content {
+  padding-top: 15px;
+  content: 85%;
+  display: flex;
+}
+
+.filter {
+  width: 20%;
+  height: 100%;
+}
+
+.productsdisplay {
+  width: 70%;
+  height: 100%;
+}
+.nav-linka {
+  padding-right: 0%;
+  padding-left: .5rem;
+}
+.nav-linka {
+  display: block;
+  padding: .5rem 0rem .5rem 1rem;
+}
+.nav-linkb {
+  padding-right: .5rem;
+  padding-left: 0%;
+}
+.nav-linkb {
+  display: block;
+  padding: .5rem 1rem .5rem 0rem;
+}

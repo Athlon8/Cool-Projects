@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <!-- Below are some external links that are required for further processes -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="../CSS/stylesheet.css">
+  <title>ARN - CMS</title>
+  <link rel="icon" type="image" href="../Images/logo.png">
+</head>
+<body>
+  <!-- Below is the code for navigation bar which is styled using bootstrap -->
+  <nav class="navbar navbar-expand-lg navbar-light justify-content-xl-around">
+    <a class="navbar-brand" href="#"><img class="logo" style="height: 50px; width: 50px;" src="../Images/logoARN.png" alt=""></a>
+    <!-- Below is the navigation toggle button that only appears when there is not enough space for the complete navigation bar to be displayed
+    so it converts it into a toggle so when clicked on it we can see the navugation bar in vertical order -->
+    <button class="navbar-toggler bg-light" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Collapse bar for the navigation -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="navbar-nav nav-fill w-100">
+        <span class="nav-item d-flex px-5">
+          <!-- following are the links of the pages -->
+          <a class="nav-link text-light" href="all_orders.html">Orders</a>
+          <a class="nav-link text-light" href="all_products.html">Products</a>
+          <a class="nav-link text-light" href="new_product.html">New Product</a>
+        </span>
+        <span>
+          <!-- The below form is for the search -->
+        <div class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search Products" aria-label="Search" id="prodSearch" onkeydown="searchHandle()">
+          <button class="btn btn-outline-primary my-2 my-sm-0" onclick="searchHandleClick()">Search</button>
+        </div>
+        </span>
+        <!-- The last span is for the registration and login options -->
+        <span class="nav-item d-flex justify-content-end">
+          <a class="nav-linka text-light" href="login.html">Login/</a>
+              <a class="nav-linkb text-light" href="signup.html">Register</a>
+        </span>
+        </div>
+    </div>
+  </nav>
+  <!-- Below is the content of the body -->
+  <div class="container" id="product">
+  </div>
+      
+  <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="confirmModalLabel">Confirm</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to remove this product?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-danger" id="confirm">Remove</button>
+        </div>
+      </div>
+    </div>
+  </div>
+      <script src="../Javascript/admin.js"></script>
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+      <script src="https://use.fontawesome.com/ee1c3da296.js"></script>
+  <script>
+  //Download products when page loads
+     window.onload = loadProducts;
+           
+           //Downloads JSON description of products from server
+           function loadProducts(){
+               //Create request object 
+               let request = new XMLHttpRequest();
+
+               //Create event handler that specifies what should happen when server responds
+               request.onload = () => {
+                   //Check HTTP status code
+                   if(request.status === 200){
+                       //Add data from server to page
+                       displayProducts(request.responseText);
+                   }
+                   else
+                       alert("Error communicating with server: " + request.status);
+               };
+
+               //Set up request and send it
+               request.open("GET", "../PHP/all_products.php");
+               request.send();
+           }
+           //Loads products into page
+           function displayProducts(jsonProducts){
+               //Convert JSON to array of product objects
+               let prodArray = JSON.parse(jsonProducts);
+               
+               //Create HTML table containing product data
+               let htmlStr = '<table class="table table-striped">';
+                 htmlStr += '<thead>';
+                 htmlStr +=    '<tr>';
+                 htmlStr +=        '<th>Product ID</th>';
+                 htmlStr +=        '<th>Product Name</th>';
+                 htmlStr +=        '<th>Price</th>';
+                 htmlStr +=        '<th>Image</th>';
+                 htmlStr +=        '<th>Actions</th>';
+                 htmlStr +=      '</tr>';
+                 htmlStr +=    '</thead>';
+                 htmlStr +=   '<tbody>'
+               for(let i=0; i<prodArray.length; ++i){
+                   htmlStr += "<tr>";
+                   htmlStr +=   '<td>'+ prodArray[i]._id +'</td>';
+                   htmlStr += "<td>" + prodArray[i].name + '<div class="product-description">' + prodArray[i].description+'</div> </td>';
+                   htmlStr += "<td>$" + prodArray[i].price + "</td>";
+                   htmlStr += '<td><img src="'+prodArray[i].image+'" class="img-thumbnail" width="50" height="50"></td>';
+                   htmlStr += '<td> <div class="btn-group-vertical"> <a href="#" class="btn btn-primary btn-xs edit-product" data-product-id="' + prodArray[i]._id + '">Edit</a> <a href="#" class="btn btn-danger btn-xs remove-product" data-product-id="' + prodArray[i]._id + '">Remove</a></div></td>'
+                   htmlStr += "</tr>";
+               }
+               htmlStr += "</tbody>";
+               //Finish off table and add to document
+               htmlStr += "</table>";
+               document.getElementById("product").innerHTML = htmlStr;
+
+               $('.remove-product').click(function(e) {
+                      e.preventDefault();
+                      console.log("Clicked");
+                      productId = $(this).data('product-id');
+                      var productName = $(this).closest('tr').find('td:eq(1)').text();
+                      var confirmModal = $('#confirmModal');
+                      confirmModal.find('.modal-body p').text('Are you sure you want to remove ' + productId + '?');
+                      confirmModal.modal();
+                });
+
+                $('#confirmModal #confirm').click(function(){
+                  let request = new XMLHttpRequest();
+
+                    //Create event handler that specifies what should happen when server responds
+                    request.onload = () => {
+                        //Check HTTP status code
+                        if(request.status === 200){
+                            
+                            console.log("Product Removed");
+                        }
+                        else
+                            alert("Error communicating with server: " + request.status);
+                    };
+
+                    //Set up request and send it
+                    request.open("POST", "../PHP/delete_products.php");
+                    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                    request.send("id=" + productId);
+                    console.log(productId)
+                    $('.remove-product[data-product-id="'+productId+'"]').closest('tr').remove();
+                    $('#confirmModal').modal('hide');
+                });
+              }
+                function searchHandle(){
+                    if(event.key==='Enter'){
+                      let searchInput = document.getElementById("prodSearch").value;
+                      let request = new XMLHttpRequest();
+                      request.open("GET", "../PHP/search_products.php?search=" + searchInput, true);
+                      request.onload = () => {
+                          if(request.status === 200){
+                            displayProducts(request.responseText);
+                              console.log("Result Visible");
+                          }
+                          else
+                              alert("Error communicating with server: " + request.status);
+                          };
+                      request.send();
+                    }
+                  }
+                function searchHandleClick(){
+                      let searchInput = document.getElementById("prodSearch").value;
+                      let request = new XMLHttpRequest();
+                      request.open("GET", "../PHP/search_products.php?search=" + searchInput, true);
+                      request.onload = () => {
+                          if(request.status === 200){
+                            displayProducts(request.responseText);
+                            console.log("Result Visible");
+                          }
+                          else
+                              alert("Error communicating with server: " + request.status);
+                      };
+                      request.send();
+                }      
+ </script>
+</body>
+</html>      

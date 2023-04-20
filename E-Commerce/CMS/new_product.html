@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <!-- Below are some external links that are required for further processes -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="../CSS/stylesheet.css">
+  <title>ARN - CMS</title>
+  <link rel="icon" type="image" href="../Images/logo.png">
+</head>
+<body>
+  <!-- Below is the code for navigation bar which is styled using bootstrap -->
+  <nav class="navbar navbar-expand-lg navbar-light justify-content-xl-around">
+    <a class="navbar-brand" href="#"><img class="logo" style="height: 50px; width: 50px;" src="../Images/logoARN.png" alt=""></a>
+    <!-- Below is the navigation toggle button that only appears when there is not enough space for the complete navigation bar to be displayed
+    so it converts it into a toggle so when clicked on it we can see the navugation bar in vertical order -->
+    <button class="navbar-toggler bg-light" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Collapse bar for the navigation -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="navbar-nav nav-fill w-100">
+        <span class="nav-item d-flex px-5">
+          <!-- following are the links of the pages -->
+          <a class="nav-link text-light" href="all_orders.html">Orders</a>
+          <a class="nav-link text-light" href="all_products.html">Products</a>
+          <a class="nav-link text-light" href="new_product.html">New Product</a>
+        </span>
+        <span>
+          <!-- The below form is for the search -->
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+        </form>
+        </span>
+        <!-- The last span is for the registration and login options -->
+        <span class="nav-item d-flex justify-content-end">
+          <a class="nav-linka text-light" href="login.html">Login/</a>
+              <a class="nav-linkb text-light" href="signup.html">Register</a>
+        </span>
+        </div>
+    </div>
+  </nav>
+  <!-- Below is the content of the body -->
+  <div class="newProductBody container">
+    <div>
+      <div class="image-container">
+        <link rel="stylesheet" href="stylesheet.css">
+          <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css">
+          <img src="../Images/background.jpg" alt="">
+          <div class="caption"></div>
+          <!-- <form enctype="multipart/form-data"> -->
+            <input type="file" id="image-input" name="imageToUpload" accept="image/*" style="display:none">
+          <!-- </form> -->
+      </div>
+      <div class="parent-container">
+          <div class="image-containerSecond">
+            <!-- <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt=""> -->
+            <img src="../Images/background.jpg" alt="">
+            <!-- <form> -->
+              <input type="file" id="image-input-1" accept="image/*" style="display:none" >
+            <!-- </form> -->
+          </div>
+          <div class="image-containerSecond">
+            <!-- <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt=""> -->
+            <img src="../Images/background.jpg" alt="">
+            <!-- <div class="caption">Click to upload image</div> -->
+            <!-- <form> -->
+              <input type="file" id="image-input-2" accept="image/*" style="display:none">
+            <!-- </form> -->
+          </div>
+          <div class="image-containerSecond">
+            <!-- <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt=""> -->
+            <img src="../Images/background.jpg" alt="">
+            <!-- <div class="caption">Click to upload image</div> -->
+            <!-- <form> -->
+              <input type="file" id="image-input-3" accept="image/*" style="display:none">
+            <!-- </form> -->
+          </div>
+          <div class="image-containerSecond">
+            <!-- <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt=""> -->
+            <img src="../Images/background.jpg" alt="">
+            <!-- <div class="caption">Click to upload image</div> -->
+            <!-- <form> -->
+              <input type="file" id="image-input-4" accept="image/*" style="display:none">
+            <!-- </form> -->
+          </div>
+      </div>
+    </div>
+    <div id="product-upload">
+      <label>Product Name:</label>
+      <input type="text" id="product-name" required>
+      
+      <label>Product Brand:</label>
+      <input type="text" id="product-brand" required>
+  
+      <label>Product Price:</label><br>
+      <input type="number" id="product-price" min="0" step="0.01" required style="width: 100%; height: 30px;"><br>
+      
+      <label>Product Size:</label><br>
+      <input type="text" id="product-size" required><br>
+      
+      <label>Product Color:</label>
+      <input type="text" id="product-colour" required><br>
+  
+      <label>Product Material:</label>
+      <input type="text" id="product-material" required></textarea><br>
+      <label>Product Quantity:</label>
+      <input type="number" id="product-quantity" required min="0" step="1" required style="width: 100%; height: 30px;"></textarea><br>
+  
+      <label>Product Description:</label>
+      <textarea id="product-description" required></textarea><br>
+  
+      <button type="submit" onclick="add_product()">Submit</button>
+  </div>
+  
+  </div>
+  <script>
+    function add_product(){
+      
+        const fileInput = document.getElementById('image-input');
+        const fileInput1 = document.getElementById('image-input-1');
+        const fileInput2 = document.getElementById('image-input-2');
+        const fileInput3 = document.getElementById('image-input-3');
+        const fileInput4 = document.getElementById('image-input-4');
+          let request = new XMLHttpRequest();
+          const file = fileInput.files[0];
+          const file1 = fileInput1.files[0];
+          const file2 = fileInput2.files[0];
+          const file3 = fileInput3.files[0];
+          const file4 = fileInput4.files[0];
+          // if (file && file1 && file2 && file3 & file4) {
+            const formData = new FormData();
+          formData.append('image-input', file);
+          formData.append('image-input-1', file1);
+          formData.append('image-input-2', file2);
+          formData.append('image-input-3', file3);
+          formData.append('image-input-4', file4);
+          formData.append('name', document.getElementById("product-name").value);
+          formData.append('brand', document.getElementById("product-brand").value);
+          formData.append('price', document.getElementById("product-price").value);
+          formData.append('size', document.getElementById("product-size").value);
+          formData.append('colour', document.getElementById("product-colour").value);
+          formData.append('material', document.getElementById("product-material").value);
+          formData.append('quantity', document.getElementById("product-quantity").value);
+          formData.append('description', document.getElementById("product-description").value);
+
+          // Create event handler that specifies what should happen when server responds
+          request.onload = () => {
+            // Check HTTP status code
+            if (request.status === 200) {
+              // Get data from server
+              let responseData = request.responseText;
+              alert(responseData);
+            } else
+              alert("Error communicating with server: " + request.status);
+          };
+
+          // Set up request with HTTP method and URL
+          request.open("POST", "../PHP/new_product.php", true);
+
+          // Send request with formData object as the body of the request
+          request.send(formData);
+          
+          // } else {
+          //   alert("Upload all the images.")
+          // }
+    }
+</script>
+    <script src="../Javascript/cart.js"></script>
+
+    <script src="../Javascript/admin.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  
+    <script src="https://use.fontawesome.com/ee1c3da296.js"></script>
+  </body>
+  </html>

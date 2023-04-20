@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+     <!-- Below are some external links that are required for further processes -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="../CSS/style.css" rel="stylesheet">
+    <title>ARN - Product Page</title>
+    <link rel="icon" type="image" href="../Images/logo.png">
+</head>
+
+<body>
+    <!-- Below is the navigation bar of the website -->
+    <nav class="navbar navbar-expand-lg navbar-light justify-content-xl-around">
+      <a class="navbar-brand" href="#"><img class="logo" style="height: 50px; width: 50px;" src="../Images/logoARN.png" alt=""></a>
+       <!-- Below is the navigation toggle button that only appears when there is not enough space for the complete navigation bar to be displayed
+  so it converts it into a toggle so when clicked on it we can see the navugation bar in vertical order -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+       <!-- Collapse bar for the navigation -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+          <div class="navbar-nav nav-fill w-100">
+          <span class="nav-item d-flex px-5">
+                <!-- following are the links of the pages -->
+            <a class="nav-link text-light" href="index.html">Home</a>
+            <a class="nav-link text-light" href="formal-listing.html">Shop</a>
+          </span>
+          <span>
+          <form class="form-inline my-2 my-lg-0">
+              <!-- The below form is for the search -->
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+          </form>
+          </span>
+           <!-- The last span is for the cart, login, and registration -->
+          <span class="nav-item d-flex justify-content-end">
+              <!-- The first div is for the cart which is being used as a dropdown -->
+            <div class="dropdown">
+              <button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown">
+                <i class="fa fa-shopping-cart"></i>  <!-- This is the icon of the shopping cart. Note internet is required to load it -->
+              </button>
+              <!-- the div below is for the content of the dropdown -->
+              <div class="dropdown-menu dropdown-menu-right">
+                <table class="table table-hover table-bordered rounded-lg">
+                  <thead class="thead-light">
+                    <tr>
+                      <th>Product Image</th>
+                      <th>Product Name</th>
+                      <th>Price</th>
+                      <th>Quantity</th>
+                      <th>Total</th>
+                      <th>Remove</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <img src="../Images/product1.jpeg" alt="Good Shoes" width="50">
+                      </td>
+                      <td>Good Shoes</td>
+                      <td>10 Dhs.</td>
+                      <td>
+                        <input type="number" class="form-control" value="1">
+                      </td>
+                      <td class="priceTotal">10 Dhs.</td>
+                      <td>
+                        <button class="btn btn-danger remove-button">X</button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="../Images/product2.jpg" alt="Better Shoes" width="50">
+                      </td>
+                      <td>Better Shoes</td>
+                      <td>20 Dhs.</td>
+                      <td>
+                        <input type="number" class="form-control" value="1">
+                      </td>
+                      <td class="priceTotal">20 Dhs.</td>
+                      <td>
+                        <button class="btn btn-danger remove-button">X</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <h2 class="text-dark" id="total">Total: 30 Dhs.</h2>
+                <div class="dropdown-divider"></div>
+                <div class="d-flex justify-content-end">
+                  <a class="btn btn-primary btn-block text-white" href="order_confirmation.html">Checkout</a>
+                </div>
+              </div>
+              <!-- Below is the end of the dropdown  -->
+            </div>
+            <a class="nav-linka text-light" href="login.html">Login/</a>
+            <a class="nav-linkb text-light" href="signuppage.html">Register</a>
+          </span>
+          </div>
+      </div>
+    </nav>
+    <div id="content-wrapper">
+
+
+        <div class="column">
+            <img id=featured src="../images/product11.webp">
+
+            <div id="slide-wrapper">
+
+                <div id="slider">
+                    <img id="0" class="thumbnail active" src="../images/product11.webp ">
+                    <img id="1" class="thumbnail" src="../images/product12.webp ">
+                    <img id="2" class="thumbnail" src="../images/product13.webp ">
+                    <img id="3" class="thumbnail" src="../images/product14.webp ">
+
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="column">
+            <h1>Blazer Mid '77 Jumbo Ess</h1>
+
+
+
+            <h2 style="font-size: 29px; margin-left: 40px;">Nike</h2>
+
+            <h3>374 AED</h3>
+            <hr>
+
+            <p>
+                Genuine leather upper with textile underlays
+            </p>
+
+            <p> Eyelets with secure lace-up closure Foam cushioning feels soft and lightweight with every step
+            </p>
+            <p>
+                Herringbone rubber sole provides durable traction Tonal Nike swoosh branding
+            </p>
+            <ul>
+
+                <li> Product Material: Leather</li>
+                <li>Product Color: Black</li>
+            </ul>
+            <label style=" float:initial ;" for="size">Choose a size:</label>
+            <select name="size" style="float: inline-end; " id="size" size="1">
+                <option value="37">37 EU</option>
+                <option value="38">38 EU</option>
+                <option value="39">39 EU</option>
+                <option value="40">40 EU</option>
+                <option value="41">41 EU</option>
+                <option value="42">42 EU</option>
+                <option value="43">43 EU</option>
+                <option value="44">44 EU</option>
+                <option value="45">45 EU</option>
+                <option value="46">46 EU</option>
+                <option value="47">47 EU</option>
+            </select>
+            <br>
+            <br>
+            <a class="btn btn-light" href="# " style=" width: 100%; float: right; ">Add to Cart</a>
+        </div>
+
+    </div>
+
+    <script type="text/javascript">
+        let thumbnails = document.getElementsByClassName('thumbnail')
+        let buttonRight = document.getElementById('slideRight');
+        let buttonLeft = document.getElementById('slideLeft');
+
+        let activeImages = document.getElementsByClassName('active')
+
+        for (var i = 0; i < thumbnails.length; i++) {
+
+            thumbnails[i].addEventListener('mouseover', function() {
+                console.log(activeImages)
+
+                if (activeImages.length > 0) {
+                    activeImages[0].classList.remove('active')
+                }
+
+
+                this.classList.add('active')
+                document.getElementById('featured').src = this.src
+            })
+        }
+
+
+
+        buttonLeft.addEventListener('click', function() {
+            if (document.getElementsByClassName("thumbnail").id != 1) {
+                plusDivs(-1);
+            }
+
+
+        })
+
+        buttonRight.addEventListener('click', function() {
+            if (document.getElementsByClassName("thumbnail").id != 3) {
+                plusDivs(+1);
+            }
+
+        })
+
+
+
+        window.onscroll = function() {
+            myFunction()
+        };
+
+        // Get the navbar
+        var navbar = document.getElementById("navbar");
+
+        // Get the offset position of the navbar
+        var sticky = navbar.offsetTop;
+
+        // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+        function myFunction() {
+            if (window.pageYOffset >= sticky) {
+                navbar.classList.add("sticky")
+            } else {
+                navbar.classList.remove("sticky");
+            }
+        }
+    </script>
+
+</body>
+
+</html>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js "></script>
+<script src="jquery.ripples-min.js "></script>
+<script>
+    $('header').ripples({
+        dropRadius: 30,
+        perturbance: 0.03
+    });
+</script>
+<script src="../Javascript/cart.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script src="https://use.fontawesome.com/ee1c3da296.js"></script>
+</body>
+
+</html>

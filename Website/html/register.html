@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- This is the starting of the head tag -->
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/stylesheet.css">
+    <title>Duck Hunt</title>
+    <script src="../javascript/common.js"></script>
+</head>
+<!-- This is the ending of the head tag -->
+<body onload="checkLogin()">
+    <!-- This is the start of the nav div -->
+    <div class="nav"> 
+        <img src="../images/athlon.png" alt="">
+        <ul>
+            <li class="items active">
+                <a href="index.html" id="hometxt" onclick="logOut()">
+                    <span class="icon"> 
+                        <ion-icon name="home-outline"></ion-icon>
+                    </span>
+                    <span class="navText">Home</span>
+                </a>
+            </li>
+            <li class="items">
+                <a href="game.html">
+                    <span class="icon"> 
+                        <ion-icon name="game-controller-outline"></ion-icon>
+                    </span>
+                    <span class="navText">Games</span>
+                </a>
+            </li>
+            <li class="items">
+                <a href="rules.html">
+                    <span class="icon"> 
+                        <ion-icon name="reader-outline"></ion-icon>
+                    </span>
+                    <span class="navText">Rules</span>
+                </a>
+            </li>
+            <li class="items">
+                <a href="howto.html">
+                    <span class="icon"> 
+                        <ion-icon name="create-outline"></ion-icon>
+                    </span>
+                    <span class="navText">How to play</span>
+                </a>
+            </li>
+            <li class="items">
+                <a href="leaderboard.html">
+                    <span class="icon"> 
+                        <ion-icon name="podium-outline"></ion-icon>
+                    </span>
+                    <span class="navText">Leaderboard</span>
+                </a>
+            </li>
+            <div class="indicate"></div>
+        </ul>
+        <p class="user" id="userWelcome">Hello User!!</p>
+        <!-- This is the end of the nav div -->
+    </div>
+    <!-- Below is the content of the body after navigation none of the inputs are saved as of now -->
+    <div class="homeBody">
+        <div class="homeContent">
+        <h1>Register</h1>
+        <div class="credentials">
+            <div class="vertical">
+                <label class="text" for="fullName">Full Name:</label>
+                <br>
+                <label class="text" for="username">Username:</label>
+                <br>
+                <label class="text" for="dob">Date of Birth:</label>
+                <br>
+                <label class="text" for="password">Password:</label>
+                <br>
+                <label class="text" for="conpass">Confirm Password:</label>
+            </div>
+            <div class="vertical">
+            <input class="input" type="name" id="fullname" name="fullname">
+            <br>
+            <input class="input" type="text" id="username" name="username">
+            <br>
+            <input class="input" type="date" id="dob" name="dob">
+            <br>
+            <input class="input" type="password" id="pwd" name="pwd" minlength="8">
+            <br>
+            <input class="input" type="password" id="conpwd" name="conpwd" minlength="8">
+            </div>
+        </div>
+        <p id="registerErrorMessage" style="color: red;"></p>
+        <input class="buttonSub" type="submit" onclick="register()">
+        <p class="button">Play as a guest</p>
+
+        <p>Note: your progress will not be saved if you play as a guest.</p>
+    </div>
+    </div>
+    <!-- Below is the script for the icons -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

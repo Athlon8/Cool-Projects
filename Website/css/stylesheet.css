@@ -1,0 +1,357 @@
+/* defines the documents body */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+/* it is for the html tag */
+html{
+  background-color: cadetblue;
+  height: 100%;
+  width: 100%;
+}
+/* this is for the navigation bar styling  */
+.nav{
+    width: 100%;
+    height: 70px;
+    margin-top: 4%;
+    /* aligns the items horizontaly */
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    border-radius: 4px;
+}
+/* this is for all ul elements in nav */
+.nav ul{
+    display: flex;
+    width: 600px;
+    align-items: center;
+}
+/* this is for the all li elements in ul */
+.nav ul li{
+  position: relative;
+  padding-inline-start: 3%;
+  list-style: none;
+  height: 70px;
+  width: 90px;
+  z-index: 1;
+}
+/* this is for all the a elements  */
+.nav ul li a{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+  font-weight: 500;
+}
+/* this is for all the icons */
+.nav ul li a .icon{
+  position: relative;
+  display: block;
+  line-height: 75px;
+  font-size: 2.5em;
+  text-align: center;
+  transition: 0.5s;
+  color:bisque;
+  transform: translateY(-10px);
+}
+/* this is to differentiate between active ad inactive icons */
+.nav ul li.active a .icon{
+ transform: translateY(-40px);
+}
+/* this class gets activated when the icon is hovered over */
+.items:hover a .icon{
+  transform: translateY(-25px);
+ }
+ /* this class is to transalte the text when the cursor is hovered over */
+.items:hover a .navText{
+  opacity: 1;
+  transform: translateY(10px);
+ }
+ /* This is for the text displayed under the icons */
+.nav ul li a .navText{
+  position: absolute;
+  color: #222327;
+  font-weight: bold;
+  font-size: 15px;
+  letter-spacing: 0.05em;
+  transition: 0.5s;
+  transform: translateY(10px);
+  opacity: 1;
+} 
+/* This is when the class gets activated */
+.nav ul li.active a .navText{
+    opacity: 1;
+    transform: translateY(10px);
+}
+/* This is the indicator */
+.indicate{
+  position: absolute;
+  top: -55%;
+  width: 50px;
+  height: 50px;
+  background-color: darkslategray;
+  border-radius: 50%;
+  border: 3px solid black;
+  transition: 0.5s;
+}
+/* These classes are to get the indicator on the icon when it is activated */
+.nav ul li:nth-child(1).active ~ .indicate{
+  transform: translateX(calc(90px * 0 + 33px));
+}
+.nav ul li:nth-child(2).active ~ .indicate{
+  transform: translateX(calc(90px * 1 + 52px ));
+}
+.nav ul li:nth-child(3).active ~ .indicate{
+  transform: translateX(calc(90px * 2 + 70px));
+}
+.nav ul li:nth-child(4).active ~ .indicate{
+  transform: translateX(calc(90px * 3 + 88px));
+}
+.nav ul li:nth-child(5).active ~ .indicate{
+  transform: translateX(calc(90px * 4 + 106px));
+}
+
+.user{
+  padding: 9px;
+  background-color: #aef3f3;
+  width: fit-content;
+  height: fit-content;
+  border: none;
+  border-radius: 50px;
+  pointer-events: none;
+  transition: all 0.1 ease 0s;
+  color:darkslategray;
+  font-size: large;
+}
+.introP{
+  text-align: center;
+}
+.homeBody{
+  margin-top: 5%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+  background-color: aliceblue;
+  border-radius: 7%;
+}
+
+/* Style inspired by: https://getcssscan.com/css-buttons-examples */
+.button {
+  background-color: #fbeee0;
+  border: 2px solid #422800;
+  border-radius: 30px;
+  box-shadow: #422800 4px 4px 0 0;
+  color: #422800;
+  cursor: pointer;
+  width: 25%;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 0 16px;
+ height: auto;
+  text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  text-decoration: none;
+}
+
+.button:hover {
+  background-color: #fff;
+}
+
+.button:active {
+  box-shadow: #422800 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}
+
+
+.homeContent{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.credentials{
+  display: flex;
+
+}
+/* Style inspired by: https://getcssscan.com/css-buttons-examples */
+.buttonSub {
+  background-color: #fbeee0;
+  border: 2px solid #422800;
+  border-radius: 30px;
+  box-shadow: #422800 4px 4px 0 0;
+  color: #422800;
+  cursor: pointer;
+  width: 10%;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 0 16px;
+ height: auto;
+  text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+.text{
+  font-family: 'Actor';font-size: 22px;
+  font-size: large;
+  font-weight: bold;
+}
+.vertical{
+  display: flex;
+  flex-direction: column;
+}
+.input{
+  margin-left: 4%;
+}
+.reg{
+  cursor: pointer;
+  text-decoration: underline;
+}
+.game{
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  width: 70%;
+}
+.rules{
+  font-size: 25px;
+  padding-left: 4%;
+  margin-top: 3%;
+}
+.rulesHeading{
+  font-size: 60px;
+}
+.nav ul li a .logOutIcon{
+  position: relative;
+  display: block;
+  line-height: 75px;
+  font-size: 2.5em;
+  text-align: center;
+  transition: 0.5s;
+  color:red;
+  transform: translateY(-10px);
+}
+.nav ul li.active a .logOutIcon{
+  transform: translateY(-40px);
+ }
+ /* this class gets activated when the icon is hovered over */
+ .items:hover a .logOutIcon{
+   transform: translateY(-25px);
+  }
+  .gameContainer{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 170px;
+    right: 12%;
+    left: 12%;
+    bottom: 4%;
+    width: 75%;
+    background-image: url('../images/background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .duck{
+    position: absolute;
+    /* padding-left: 0%; */
+    /* pointer-events: none; */
+  }
+  #aimPng{
+    position:absolute;
+    pointer-events: none;
+}
+.startButton{
+  background-color: #fbeee0;
+  border: 2px solid #422800;
+  border-radius: 30px;
+  box-shadow: #422800 4px 4px 0 0;
+  color: #422800;
+  cursor: pointer;
+  width: 10%;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 0 16px;
+ height: auto;
+  text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.duckBottom{
+  position: absolute;
+  padding-left: 0%;
+  bottom: 0%;
+  /* pointer-events: none; */
+}
+.scoreClass{
+  display: block;
+  margin-left: auto;
+  margin-right: 2%;
+  border: 2px solid brown;
+  background-color: #fbeee0;
+  padding: 5px;
+  border-radius: 5px;
+  color: brown;
+  font-size: large;
+  font-weight: bold;
+  pointer-events: none;
+  
+  
+}
+.timer{
+  display: block;
+  margin-left: 2%;
+  margin-right: auto;
+  margin-top: 2%;
+  border: 2px solid brown;
+  background-color: #fbeee0;
+  padding: 5px;
+  border-radius: 5px;
+  color: brown;
+  font-size: large;
+  font-weight: bold;
+  pointer-events: none;
+  
+}
+.storage{
+  display: flex;
+  flex-direction: row;
+  pointer-events: none;
+}
+#scoreTxt{
+  display: none;
+  position: absolute;
+  pointer-events: none;
+  color: gold;
+  font-weight: bolder;
+  pointer-events: none;
+}
+#levelIndicator{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  color: gold;
+  font-size: 80px;
+  font-weight: bolder;
+  pointer-events: none;
+}
+#difficultyLevel{
+  margin-left: auto;
+  margin-right: auto;
+  color: wheat;
+  font-weight: bold;
+  font-size: medium;
+}

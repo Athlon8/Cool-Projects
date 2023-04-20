@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- This is the starting of the head tag -->
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/stylesheet.css">
+    <title>Duck Hunt</title>
+    <script src="../javascript/common.js"></script>
+</head>
+<!-- This is the ending of the head tag -->
+<body onload="checkLogin()">
+    <!-- This is the start of the nav div -->
+    <div class="nav"> 
+        <!-- This is the logo pic -->
+        <img src="../images/athlon.png" alt="">
+        <!-- These are all the naviagtion options -->
+        <ul>
+            <li class="items">
+                <a href="index.html" id="hometxt" onclick="logOut()">
+                    <span class="icon"> 
+                        <ion-icon name="home-outline"></ion-icon>
+                    </span>
+                    <span class="navText">Home</span>
+                </a>
+            </li>
+            <li class="items">
+                <a href="game.html">
+                    <span class="icon"> 
+                        <ion-icon name="game-controller-outline"></ion-icon>
+                    </span>
+                    <span class="navText">Games</span>
+                </a>
+            </li>
+            <li class="items active">
+                <a href="rules.html">
+                    <span class="icon"> 
+                        <ion-icon name="reader-outline"></ion-icon>
+                    </span>
+                    <span class="navText">Rules</span>
+                </a>
+            </li>
+            <li class="items">
+                <a href="howto.html">
+                    <span class="icon"> 
+                        <ion-icon name="create-outline"></ion-icon>
+                    </span>
+                    <span class="navText">How to play</span>
+                </a>
+            </li>
+            <li class="items">
+                <a href="leaderboard.html">
+                    <span class="icon"> 
+                        <ion-icon name="podium-outline"></ion-icon>
+                    </span>
+                    <span class="navText">Leaderboard</span>
+                </a>
+            </li>
+            <div class="indicate"></div>
+        </ul>
+        <p class="user" id="userWelcome">Hello User!!</p>
+        <!-- This is the end of the nav class -->
+    </div>
+    <!-- This is the starting of the main body after the navigation -->
+    <div class="homeBody">
+        <p class="rules">* Hunt as many ducks as you can and complete the levels.</p>
+        <p class="rules">* After completing all the levels you can continue playing the game to beat your high score and be on the top of the leaderboard.</p>
+        <p class="rules">* Do not refresh the page while playing.</p>
+        <p class="rules">* The score would only be saved after the registration.</p>
+        <p class="rules">* Only the highest score would be considered for the leaderboard.</p>
+        <p class="rules">* Have fun!</p>
+    </div>
+    <!-- Below is the script for the icons -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

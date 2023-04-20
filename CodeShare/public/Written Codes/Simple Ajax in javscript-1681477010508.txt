@@ -1,0 +1,20 @@
+var request = new XMLHttpRequest();
+        request.open('POST', '/saveCode');
+        request.setRequestHeader('Content-Type', 'application/json');
+        //Create event handler that specifies what should happen when server responds
+        request.onload = () => {
+            //Check HTTP status code
+            if(request.status === 200){
+                console.log(request.responseText);
+                if(request.responseText == "Saved Successfully"){
+                    codeInputModal.hide();
+                    location.reload();
+                }else{
+                    alert("Code can not be saved");
+                }
+            }
+            else
+                alert("Error communicating with server: " + request.status);
+        };
+        // sending the request
+        request.send(JSON.stringify({codeName: name, codeText: codeText, owner: ownerName}));

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Below are the external links -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <!-- Load Bootstrap JavaScript from a CDN -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="stylesheet.css">
+        <script src="codeShare.js"></script>
+        <title>Code Share</title>
+    </head>
+    <body>
+        <!-- Below is the code for navigation bar which is styled using bootstrap -->
+        <nav class="navbar navbar-expand-lg navbar-light justify-content-xl-around">
+            <a class="navbar-brand" href="#"><img class="logo" style="height: 40px; width: 80px;" src="Images/codeShare.png" alt=""></a>
+            <!-- Below is the navigation toggle button that only appears when there is not enough space for the complete navigation bar to be displayed
+            so it converts it into a toggle so when clicked on it we can see the navugation bar in vertical order -->
+            <button class="navbar-toggler bg-light" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Collapse bar for the navigation -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="navbar-nav nav-fill w-100">
+                <span class="nav-item d-flex px-5">
+                <!-- Following is the slogan and title of the website -->
+                <a style="color: white;">Code Share. Every code you might need</a>
+                </span>
+                <span>
+                </span>
+                <!-- The last span is for the registration and login options -->
+                <span class="nav-item d-flex justify-content-end">
+                  <a class="nav-linkb text-light" id="codeInputButton">Add a code    /</a>
+                  <a class="nav-linka text-light" id="loginButton">Login/</a>
+                  <a class="nav-linkb text-light" id="registrationButton">Register</a>
+                </span>
+                </div>
+            </div>
+        </nav>
+        <div class="container-fluid">
+            <div class="row">
+              <!-- List of all the available codes -->
+              <div id="availableCodes">
+                  <div id="listCodesContainer">
+                    <h1>All Codes</h1>
+                    <ul id="listCodes">
+                      <!-- <li>Value 1</li>
+                      <li>Value 2</li>
+                      <li>Value 3</li>
+                      <li>Value 4</li>
+                      <li>Value 5</li>
+                      <li>Value 6</li>
+                      <li>Value 7</li>
+                      <li>Value 8</li>
+                      <li>Value 9</li>
+                      <li>Value 10</li>
+                      <li>Value 11</li>
+                      <li>Value 12</li>
+                      <li>Value 13</li>
+                      <li>Value 14</li>
+                      <li>Value 15</li>
+                      <li>Value 16</li>
+                      <li>Value 17</li>
+                      <li>Value 18</li>
+                      <li>Value 19</li>
+                      <li>Value 20</li> -->
+                    </ul>
+                  </div>
+                </div>
+                
+              <!-- Display of the code -->
+              <div class="col-md-9" id="codeDisplayContainer">
+                  <div id="codeDisplay">
+                      <h2></h2>
+                    </div>
+                <h1 id="text">Code Display:</h1>
+                <h1 id="ownerText" style="font-size:18px;"></h1>
+              </div>
+            </div>
+          </div>
+          <!-- Below is the modal for the registration of the user it would only open when the person clicks on the register button -->
+          <div class="modal fade" id="registrationModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Registration</h5>
+                </div>
+                <div class="modal-body">
+                  <p>Please enter your name:</p>
+                  <input type="text" id="userNameReg">
+                  <p>Please enter your email: </p>
+                  <input type="text" id="userEmailReg">
+                  <p>Please enter your password: </p>
+                  <input type="password" id="userPasswordReg">
+                  <p>Please confirm your password: </p>
+                  <input type="password" id="userConPasswordReg">
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" id="userRegButton">Submit</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Below is the modal for the log in of the user it would only open when the person clicks on the log in button -->
+          <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Log In</h5>
+                </div>
+                <div class="modal-body">
+                  <p>Please enter your email: </p>
+                  <input type="text" id="userEmailLogIn">
+                  <p>Please enter your password: </p>
+                  <input type="password" id="userPasswordLogIn">
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" id="userLogInButton">Submit</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Adding the code modal -->
+          <div class="modal fade" id="codeInputModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Code Input</h5>
+                </div>
+                <div class="modal-body">
+                  <p>Please type the name of the code:</p>
+                  <input type="text" id="codeName">
+                  <p>Please type the code: </p>
+                  <textarea name="codeInput" id="codeText" cols="30" rows="10"></textarea>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-success" id="codeSubmitButton">Submit</button>
+                </div>
+              </div>
+            </div>
+          </div>
+    </body>
+</html>

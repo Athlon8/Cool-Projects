@@ -1,0 +1,87 @@
+body{
+    background-color: rgb(211,211,211);
+}
+.navbar{
+    background-color: rgb(90, 90, 90);
+}
+
+#availableCodes{
+    /* width would be given as 20% of web page */
+    width: 20%;
+    /* height would be 100% of the screen - the pixels of navigation */
+    height: calc(100vh - 50px);
+    /* the display would be set to inline-block */
+    display: inline-block;
+    /* vertical alignment of the container is set to top */
+    vertical-align: top;
+    /* position is set to relative */
+    position: relative;
+}
+#listCodesContainer{
+    /* setting the width as 100% of its parent div */
+     width: 100%;
+    /* height is set to 100% of its parent div */
+     height: 100%;
+     /* Postion would be set to absolute */
+     position: absolute; 
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); 
+    background-color: #f2f2f2;
+        
+}
+#codeDisplayContainer{
+    /* Width of this would be set to 80% of the screen */
+    width: 80%;
+    /* height would be 100% of the screen - the pixels of navigation */
+    height: calc(100vh - 50px);
+    /* the display would be set to inline-block */
+    display: inline-block;
+    /* vertical alignment of the container is set to top */
+    vertical-align: top;
+    display: flex; 
+    position: relative;
+    
+}
+#codeDisplay{
+    /* position of this div would be set to absolute  */
+    position: absolute; 
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* height of this div would be set to 60% */
+    height: 60%;
+    /* width would be set to 80% */
+    width: 80%;
+    /* bckground color would be set to white */
+    background-color: azure;
+    padding: 2%;
+    overflow: auto;
+    white-space: pre-wrap;
+}
+#text{
+    text-align: center;
+    margin-left: 42%;
+    margin-top: 6%;
+}
+#ownerText{
+    margin-left: 10%;
+    margin-top: 10%;
+}
+#listCodes{
+    /* the overflow is set to scroll so the list is scrollable */
+    overflow-y: scroll;
+    /* now I will give it a max height height which would be the whole page height subtracting the height of heading and navigation */
+    max-height: calc(100vh - 150px);
+    /* now to make sure the list is not eaving any padding on the left side I will give it a padding of 0  */
+    padding-left: 0;
+}
+#listCodes li{
+    /* the cursor would be set to pointer */
+    cursor: pointer;
+    /* it would have an overall padding of 12px  */
+    padding: 12px;
+    /* now I will remove the usual list style */
+    list-style: none;
+}
